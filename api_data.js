@@ -72,20 +72,6 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "email",
-            "description": "<p>User Email</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "secondary_email",
-            "description": "<p>User Secondary Email</p>"
-          },
-          {
-            "group": "Success 200",
             "type": "Integer",
             "optional": false,
             "field": "program_id",
@@ -96,7 +82,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP 200 Created\n{\n  \"id\": 5,\n  \"email\": \"long.chan+test@fdmt.hk\",\n  \"secondary_email\": \"long.chan+test2@fdmt.hk\",\n  \"name\": \"Long Chan\",\n  \"program_id\": null,\n  \"role\": \"admin\",\n  \"created_at\": \"2019-06-07T13:31:16.000Z\",\n  \"updated_at\": \"2019-06-07T13:31:16.000Z\",\n}",
+          "content": "HTTP 200 Created\n{\n  \"id\": 5,\n  \"name\": \"Long Chan\",\n  \"program_id\": null,\n  \"role\": \"admin\",\n  \"created_at\": \"2019-06-07T13:31:16.000Z\",\n  \"updated_at\": \"2019-06-07T13:31:16.000Z\",\n}",
           "type": "json"
         }
       ]
@@ -115,7 +101,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Duplicate Record",
-          "content": "HTTP 409 Conflict\n{\n    \"error_code\": \"DUPLICATE_RECORD\",\n    \"message\": \"email1@google.com, email2@google.com already exist.\"\n}",
+          "content": "HTTP 409 Conflict\n{\n    \"error_code\": \"DUPLICATE_RECORD\",\n    \"message\": \"email1@google.com, email2@google.com already exists.\"\n}",
           "type": "json"
         }
       ]
@@ -204,20 +190,6 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "email",
-            "description": "<p>User Email</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "secondary_email",
-            "description": "<p>User Secondary Email</p>"
-          },
-          {
-            "group": "Success 200",
             "type": "Integer",
             "optional": false,
             "field": "program_id",
@@ -228,7 +200,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP 200 OK\n{\n  \"id\": 5,\n  \"email\": \"long.chan+test@fdmt.hk\",\n  \"secondary_email\": \"long.chan+test2@fdmt.hk\",\n  \"name\": \"Long Chan\",\n  \"program_id\": null,\n  \"role\": \"admin\",\n  \"created_at\": \"2019-06-07T13:31:16.000Z\",\n  \"updated_at\": \"2019-06-07T13:31:16.000Z\",\n}",
+          "content": "HTTP 200 OK\n{\n  \"id\": 5,\n  \"name\": \"Long Chan\",\n  \"program_id\": null,\n  \"role\": \"admin\",\n  \"created_at\": \"2019-06-07T13:31:16.000Z\",\n  \"updated_at\": \"2019-06-07T13:31:16.000Z\",\n}",
           "type": "json"
         }
       ]
@@ -258,7 +230,7 @@ define({ "api": [
         },
         {
           "title": "Duplicate Record",
-          "content": "HTTP 409 Conflict\n{\n    \"error_code\": \"DUPLICATE_RECORD\",\n    \"message\": \"email1@google.com, email2@google.com already exist.\"\n}",
+          "content": "HTTP 409 Conflict\n{\n    \"error_code\": \"DUPLICATE_RECORD\",\n    \"message\": \"email1@google.com, email2@google.com already exists.\"\n}",
           "type": "json"
         }
       ]
@@ -312,20 +284,6 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "email",
-            "description": "<p>User Email</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "secondary_email",
-            "description": "<p>User Secondary Email</p>"
-          },
-          {
-            "group": "Success 200",
             "type": "Integer",
             "optional": false,
             "field": "program_id",
@@ -365,13 +323,41 @@ define({ "api": [
             "optional": false,
             "field": "user_accesses.valid_to",
             "description": "<p>End time of the user access</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "user_emails",
+            "description": "<p>List of User Emails</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "user_emails.id",
+            "description": "<p>Id of the User Email Record</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "user_emails.user_id",
+            "description": "<p>User Id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user_emails.email",
+            "description": "<p>User Email</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP 200 OK\n{\n    \"id\": 1,\n    \"email\": \"long.chan@fdmt.hk\",\n    \"secondary_email\": null,\n    \"name\": \"Kin Long Chan 😁\",\n    \"program_id\": 23,\n    \"role\": \"admin\",\n    \"created_at\": \"2019-03-25T13:45:00.000Z\",\n    \"updated_at\": \"2019-03-25T13:45:00.000Z\",\n    \"user_accesses\": [\n        {\n            \"id\": 8,\n            \"user_id\": 1,\n            \"valid_from\": \"2019-01-01T00:00:00.000Z\",\n            \"valid_to\": \"2019-01-01T00:00:00.000Z\",\n            \"created_at\": \"2020-01-23T14:22:24.000Z\",\n            \"updated_at\": \"2020-01-23T14:22:24.000Z\"\n        }\n    ]\n}",
+          "content": "HTTP 200 OK\n{\n    \"id\": 1,\n    \"name\": \"Kin Long Chan 😁\",\n    \"program_id\": 23,\n    \"role\": \"admin\",\n    \"created_at\": \"2019-03-25T13:45:00.000Z\",\n    \"updated_at\": \"2019-03-25T13:45:00.000Z\",\n    \"user_accesses\": [\n        {\n            \"id\": 8,\n            \"user_id\": 1,\n            \"valid_from\": \"2019-01-01T00:00:00.000Z\",\n            \"valid_to\": \"2019-01-01T00:00:00.000Z\",\n            \"created_at\": \"2020-01-23T14:22:24.000Z\",\n            \"updated_at\": \"2020-01-23T14:22:24.000Z\"\n        }\n    ]\n}",
           "type": "json"
         }
       ]
@@ -458,20 +444,6 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "users.email",
-            "description": "<p>User Email</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "users.secondary_email",
-            "description": "<p>User Secondary Email</p>"
-          },
-          {
-            "group": "Success 200",
             "type": "Integer",
             "optional": false,
             "field": "users.program_id",
@@ -514,6 +486,34 @@ define({ "api": [
           },
           {
             "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "users.user_emails",
+            "description": "<p>List of User Emails</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "users.user_emails.id",
+            "description": "<p>Id of the User Email Record</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "users.user_emails.user_id",
+            "description": "<p>User Id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "users.user_emails.email",
+            "description": "<p>User Email</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "Object",
             "optional": false,
             "field": "users.program",
@@ -538,7 +538,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP 200 OK\n[\n  {\n    \"id\": 5,\n    \"email\": \"long.chan+test@fdmt.hk\",\n    \"secondary_email\": \"long.chan+test2@fdmt.hk\",\n    \"name\": \"Long Chan\",\n    \"program_id\": null,\n    \"role\": \"admin\",\n    \"created_at\": \"2019-06-07T13:31:16.000Z\",\n    \"updated_at\": \"2019-06-07T13:31:16.000Z\",\n    \"user_accesses\": [\n      {\n        \"id\": 4,\n        \"user_id\": 5,\n        \"valid_from\": \"2019-01-01T00:00:00.000Z\",\n        \"valid_to\": \"2019-12-31T23:59:59.000Z\",\n        \"created_at\": \"2019-06-07T13:47:08.000Z\",\n        \"updated_at\": \"2019-06-07T13:47:08.000Z\"\n      }\n    ]\n  }\n]",
+          "content": "HTTP 200 OK\n[\n  {\n    \"id\": 5,\n    \"name\": \"Long Chan\",\n    \"program_id\": null,\n    \"role\": \"admin\",\n    \"created_at\": \"2019-06-07T13:31:16.000Z\",\n    \"updated_at\": \"2019-06-07T13:31:16.000Z\",\n    \"user_accesses\": [\n      {\n        \"id\": 4,\n        \"user_id\": 5,\n        \"valid_from\": \"2019-01-01T00:00:00.000Z\",\n        \"valid_to\": \"2019-12-31T23:59:59.000Z\",\n        \"created_at\": \"2019-06-07T13:47:08.000Z\",\n        \"updated_at\": \"2019-06-07T13:47:08.000Z\"\n      }\n    ]\n  }\n]",
           "type": "json"
         }
       ]
